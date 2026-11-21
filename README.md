@@ -42,7 +42,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Vercel](https://interactive-pricing-component-main.vercel.app/)
+- Solution URL: [Vercel](https://interactive-pricing-component-main-three-lilac.vercel.app/)
 - Live Site URL: [mmalabugin.ru/InteractivePricingComponent](https://mmalabugin.ru/InteractivePricingComponent/)
 
 ## My process
