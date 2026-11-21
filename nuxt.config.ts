@@ -24,6 +24,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+  vite: {
+    build: {
+      // The ASCII subset of Manrope ships inside the render-blocking CSS, so the
+      // first paint always uses it and `font-display: optional` never falls back.
+      assetsInlineLimit: (file) => (file.endsWith('Manrope-ascii.woff2') ? true : undefined),
+    },
+  },
   typescript: {
     strict: true,
     tsConfig: { include: ['../tests/**/*.ts'] },
