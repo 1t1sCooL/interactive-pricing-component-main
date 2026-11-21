@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import { PricingCard } from '../../../widgets/pricing-card';
 import { PricingHeader } from '../../../widgets/pricing-header';
+import { SiteFooter } from '../../../widgets/site-footer';
 </script>
 
 <template>
-  <main class="pricing-page">
-    <PricingHeader />
-    <PricingCard />
-  </main>
+  <div class="pricing-page">
+    <main class="pricing-page__main">
+      <PricingHeader />
+      <PricingCard />
+    </main>
+    <SiteFooter class="pricing-page__footer" />
+  </div>
 </template>
 
 <style scoped>
 .pricing-page {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  padding: 0 1.5rem 8.5rem;
+  padding-inline: 1.5rem;
 }
 
 .pricing-page::before {
@@ -28,14 +34,19 @@ import { PricingHeader } from '../../../widgets/pricing-header';
   background-color: var(--slate-100);
 }
 
-@media (max-width: 47.9375em) {
-  .pricing-page {
-    padding-bottom: 5.5rem;
-  }
+.pricing-page__footer {
+  margin-top: auto;
+  padding-top: 2.5rem;
+}
 
+@media (max-width: 47.9375em) {
   .pricing-page::before {
     height: 25rem;
     border-bottom-left-radius: 11.875rem;
+  }
+
+  .pricing-page__footer {
+    padding-top: 2rem;
   }
 }
 </style>
