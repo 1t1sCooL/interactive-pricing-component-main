@@ -25,12 +25,10 @@ describe('App', () => {
     expect(mountApp().find('.nuxt-page').exists()).toBe(true);
   });
 
-  it('preloads the bundled Manrope font with CORS', () => {
+  it('does not preload the font, which is inlined into the CSS', () => {
     mountApp();
-    const preload = links().find((l) => l.rel === 'preload');
 
-    expect(preload).toMatchObject({ as: 'font', type: 'font/woff2', crossorigin: '' });
-    expect(preload?.href).toMatch(/Manrope-latin.*\.woff2/);
+    expect(links().some((l) => l.rel === 'preload')).toBe(false);
   });
 
   it('registers the bundled favicon', () => {

@@ -1,7 +1,12 @@
+/*
+ * Subset: U+0020-007E, U+00A0; wght axis 600-800. Inlined as a data URI by nuxt.config,
+ * so `block` only waits for decoding: text is painted once, already in Manrope, with no swap.
+ * `optional` would not work here: Chrome decodes even data URIs asynchronously and keeps the fallback.
+ */
 @font-face {
   font-family: Manrope;
   font-style: normal;
-  font-weight: 200 800;
-  font-display: optional;
-  src: url('../shared/assets/fonts/Manrope-latin.woff2') format('woff2');
+  font-weight: 600 800;
+  font-display: block;
+  src: url('../shared/assets/fonts/Manrope-ascii.woff2') format('woff2');
 }
