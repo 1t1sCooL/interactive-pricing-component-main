@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+﻿// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   components: { dirs: [] },
   css: ['~/styles/global.css'],
   app: {
-    // baseURL: '/InteractivePricingComponent/',
+    baseURL: '/InteractivePricingComponent/',
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Frontend Mentor | Interactive pricing component',
