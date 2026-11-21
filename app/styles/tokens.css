@@ -1,0 +1,22 @@
+:root {
+  --green-100: hsl(174deg 77% 80%);
+  --green-400: hsl(174deg 86% 45%);
+  --green-hover: hsl(174deg 75% 70%);
+  --green-active: hsl(175deg 67% 41%);
+  --orange-100: hsl(0deg 89% 96%);
+  --orange-400: hsl(15deg 100% 70%);
+  --indigo-200: hsl(226deg 100% 87%);
+  --white: hsl(0deg 0% 100%);
+  --slate-50: hsl(230deg 100% 99%);
+  --slate-100: hsl(222deg 87% 97%);
+  --slate-200: hsl(224deg 65% 95%);
+  --slate-300: hsl(223deg 50% 87%);
+  --slate-400: hsl(225deg 20% 60%);
+  --slate-800: hsl(227deg 35% 25%);
+
+  --font-manrope: 'Manrope', system-ui, sans-serif;
+
+  --radius-card: 0.5rem;
+  --shadow-card: 0 0.875rem 2.625rem -0.3125rem hsl(229deg 51% 70% / 25%);
+  --shadow-thumb: 0 0.875rem 2rem -0.25rem hsl(174deg 90% 50%);
+}
