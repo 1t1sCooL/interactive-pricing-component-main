@@ -54,14 +54,14 @@ Users should be able to:
   - `shared` — `RangeSlider`, `ToggleSwitch`, `IconCheck`, `formatUsd`, `clamp` / `progressPercent`
   - `entities/plan` — tiers, the 25% yearly discount, `priceFor`, `PriceTag`, `PerkList`
   - `features` — `select-pageviews` (tier slider), `toggle-billing` (monthly/yearly switch + badge)
-  - `widgets` — `pricing-card` (with the `usePricing` composable), `pricing-header`
+  - `widgets` — `pricing-card` (with the `usePricing` composable), `pricing-header`, `site-footer` (attribution)
   - `pages/pricing`
 - **Logic outside templates.** Pricing is pure functions in `entities/plan/model`; the card's state is a tiny `usePricing()` composable (`tierIndex`, `billing` refs + computed `tier` / `price`). Components bind with `defineModel()` and writable `computed` adapters (`boolean ⇄ 'monthly' | 'yearly'`, `number → clamped tier index`).
 - **Native controls, custom skin.** The slider is a real `<input type="range">` and the toggle is `<input type="checkbox" role="switch">` with `appearance: none`, so keyboard, touch, focus and screen readers work for free. The filled part of the track is a gradient whose stop is derived from a `--fill` ratio and the thumb width (`calc(thumb / 2 + (100% - thumb) * var(--fill))`), so the fill ends exactly under the thumb's centre; Firefox uses `::-moz-range-progress`.
 - **Accessibility.** `aria-valuetext="100K pageviews"` instead of "2", the price is an `aria-live="polite"` region, the switch is labelled by "Yearly Billing" and described by the discount badge. The mobile badge shows `-25%` visually while assistive tech still reads "25% discount".
 - **Performance.** Prerendered HTML and one render-blocking stylesheet. Manrope is subset with fontTools to printable ASCII and the `wght` 600–800 range (24 kB → 12.5 kB woff2) and inlined into that CSS as a data URI, so there is no font request, no preload and no swap: the first paint is already in Manrope, even on a throttled connection. Small SVGs and the favicon are inlined too.
 - Desktop-first CSS (BEM in scoped styles), `em` media queries, `rem` sizes, motion only inside `@media (prefers-reduced-motion: no-preference)`.
-- **Tests:** Vitest + `@vue/test-utils` + happy-dom — 83 tests: unit tests for the pricing model, formatters and `usePricing`, a test for every component (including `app.vue` with a stubbed `useHead`), and an integration suite that drives the real slider and switch through all tiers in both billing modes. Plus `eslint-plugin-vue` and `nuxt typecheck` (vue-tsc).
+- **Tests:** Vitest + `@vue/test-utils` + happy-dom — 87 tests: unit tests for the pricing model, formatters and `usePricing`, a test for every component (including `app.vue` with a stubbed `useHead`), and an integration suite that drives the real slider and switch through all tiers in both billing modes. Plus `eslint-plugin-vue` and `nuxt typecheck` (vue-tsc).
 
 ### What I learned
 
